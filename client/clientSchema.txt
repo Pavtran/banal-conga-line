@@ -1,6 +1,5 @@
-index.html
-
 app folder:
+  index.html
   app.js 
     routing
     auth??? JWT? SESSIONS? LOCALSTORAGE?

@@ -1,0 +1,7 @@
+VIEW
+  topbar
+    title
+    login --> /login
+    signup --> /signup
+
+MODEL
