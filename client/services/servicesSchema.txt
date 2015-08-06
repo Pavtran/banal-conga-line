@@ -1,0 +1,11 @@
+Requests.services
+  postRequest({request}) --> POST '/requests'
+  deleteRequest(requestId) --> DELETE? or an 'active field' in db '/requests'
+  getRequests({filter object}) --> GET '/requests'
+
+Auth.services
+  signupRequest({username, password}) --> POST '/user'
+  loginRequest({username, password}) -->  GET '/user/username'
+
+NAV BAR DIRECTIVE
+  template: nav.html

@@ -1,0 +1,22 @@
+index.html
+
+app folder:
+  app.js 
+    routing
+    auth??? JWT? SESSIONS? LOCALSTORAGE?
+  user
+    view
+    controller
+  request    
+    view
+    controller
+  signup
+    view
+    controller
+  login
+    view
+    controller
+  services
+    HTTP Requests
+    AUTH
+    NAVBAR

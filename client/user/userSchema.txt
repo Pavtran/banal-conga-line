@@ -1,0 +1,36 @@
+VIEW
+  nav bar
+
+  user model view:
+    image
+    name
+    location
+    list of TALENTS
+    contact info
+
+  requests model ng-repeat
+    talent
+    level
+    location
+    <click> Requests.deleteRequest({this requestId})
+
+
+MODEL - Dependencies: Requests
+  $scope.user = {
+    image
+    name
+    location
+    talents: [{talent, expertise}, {talent, expertise}]
+    contact info
+  }
+
+  $scope.requests = [{
+    talent
+    level
+    location
+  }, request object]
+
+  function = Requests.deleteRequests????? (can we put a factory function directly on the click)
+
+  Requests.getRequests({username: username})
+

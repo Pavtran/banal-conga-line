@@ -1,0 +1,23 @@
+VIEW
+  nav bar
+
+  search bar
+    talent
+    level
+    location
+
+  requests model ng-repeat click (goToProfile)
+    username
+    talent
+    level
+    location
+
+MODEL
+  $scope.request = [{
+    username
+    talent
+    level
+    location
+  }]
+
+  function = goToProfile

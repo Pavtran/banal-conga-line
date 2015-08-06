@@ -1,0 +1,31 @@
+VIEW SignUp
+  bar // with less features
+
+  username
+  email
+  password
+
+  location
+  talents/level // have to figure out the interface for that
+
+  signUp button click(signUp)
+  login redirect link
+
+VIEW Login
+  bar // with less features
+
+  username
+  password
+
+  location
+  talents/level // have to figure out the interface for that
+
+  login button click(login)
+  signUp redirect link
+
+MODEL 
+
+  $scope.user = {}
+
+  signUp() = function() --> Auth.signUp($scope.user)
+  login() = function() --> Auth.login($scope.user) 
