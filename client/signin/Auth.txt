@@ -1,5 +1,5 @@
 VIEW SignUp
-  bar // with less features
+  loggedOut nav bar
 
   username
   email
@@ -12,7 +12,7 @@ VIEW SignUp
   login redirect link
 
 VIEW Login
-  bar // with less features
+  loggedOut nav bar
 
   username
   password

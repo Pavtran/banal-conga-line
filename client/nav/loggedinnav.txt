@@ -1,0 +1,22 @@
+VIEW
+  topbar
+    title
+    post request --> ng-click='showOrHidePostScreen()'
+    requests --> go to /requests
+    profile --> go to /user
+    logout --> logout user and go to /signin
+  post request
+    form
+      talent
+      level
+      location
+      submit button --> postRequest() 
+MODEL - dependencies: Requests.services
+$scope.form.model = { // ?with form?
+    talent
+    level
+    location
+  }
+
+  showOrHidePostScreen() 
+  postRequest = function() { Requests.services.postRequest()}

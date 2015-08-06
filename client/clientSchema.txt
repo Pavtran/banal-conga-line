@@ -16,6 +16,13 @@ app folder:
   login
     view
     controller
+  navbar
+    loggedIn
+      view
+      controller
+    loggedOut
+      view
+      controller
   services
     HTTP Requests
     AUTH
