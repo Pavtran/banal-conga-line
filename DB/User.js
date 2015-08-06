@@ -8,18 +8,18 @@ var bluebird = require('bluebird');
  *    Connection stuff to help test the database connection
  */
 
-var url = "mongodb://banal:banal@ds031203.mongolab.com:31203/banal";
+// var url = "mongodb://banal:banal@ds031203.mongolab.com:31203/banal";
 
-mongoURI = url;
-mongoose.connect("mongodb://banal:banal@ds031203.mongolab.com:31203/heroku_b2mnmqj4/");
+// mongoURI = url;
+// mongoose.connect("mongodb://banal:banal@ds031203.mongolab.com:31203/heroku_b2mnmqj4/");
 
-// Run in seperate terminal window using 'mongod'
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
- console.log('Mongodb connection open');
-});
-module.exports = db;
+// // Run in seperate terminal window using 'mongod'
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function () {
+//  console.log('Mongodb connection open');
+// });
+// module.exports = db;
 
 
 
@@ -77,4 +77,6 @@ module.exports = User;
 //   console.log('successful!');
 // })
 
-console.log(User.findAllTalents('Patrick'));
+// (User.find(function(err, results){
+//   console.log(results);
+// }));
