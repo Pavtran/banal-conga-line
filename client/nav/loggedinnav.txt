@@ -4,7 +4,7 @@ VIEW
     post request --> ng-click='showOrHidePostScreen()'
     requests --> go to /requests
     profile --> go to /user
-    logout --> logout user and go to /signin
+    logout --> logout user and go to / signin
   post request
     form
       talent

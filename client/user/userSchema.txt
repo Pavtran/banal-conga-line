@@ -32,5 +32,6 @@ MODEL - Dependencies: Requests
 
   function = Requests.deleteRequests????? (can we put a factory function directly on the click)
 
+  User.getUser({username})
   Requests.getRequests({username: username})
 

@@ -1,0 +1,17 @@
+<div class="navbar" ng-controller="loggedInNavController">
+  <div class="headercompanyname">banal-conga-line</div>
+  <ul class="navlinks">
+    <li ng-click="togglePostRequest()">POST REQUEST</li>
+    <li href="/requests">SEARCH REQUESTS</li>
+    <li href="/user">PROFILE</li>
+    <li>LOGOUT</li>
+  </ul>
+  <div ng-show="showme">
+    Post a new request!!!
+    <form class="postrequestform" ng-submit="sendPostRequest()">
+      Talent: <input type="text" name="request.talent">
+      Level: <input type="text" name="request.level">
+      Location: <input type="text" name="request.location">
+    </form>
+  </div>
+</div>

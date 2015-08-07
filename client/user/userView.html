@@ -1,2 +1,18 @@
-<div> testing</div>
-<div> {{ username }} </div>
+<loggedin></loggedin>
+
+<h1> User </h1>
+<img class="profilepic" ng-src="{{ user.image }}"></div>
+<div class="username"> {{ user.name }} </div>
+<div class="location"> {{ user.location }} </div>
+<div class="talentholder" ng-repeat="talent in user.talents"> 
+  <div class="talent"> {{ talent.talent }} </div>
+  <div class="level"> {{ talent.level }} </div>
+</div>
+
+<h1> Requests </h1>
+<div class="requestlist" ng-repeat="request in requests track by $index">
+  <div class="talent"> {{ request.talent }}</div>
+  <div class="talent"> {{ request.level }}</div>
+  <div class="talent"> {{ request.location }}</div>
+  <div class="deleteRequest" ng-click="deleteRequest($index)">delete</div>
+</div>
