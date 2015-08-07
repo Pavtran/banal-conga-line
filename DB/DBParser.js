@@ -5,7 +5,8 @@ var Request = require('./Request.js');
  *  DBParser file
  *  Purpose of this is to communicate between the frontend and database
  *  Functions:
- *    addUser, removeUser,
+ *    Userstuff: addUser, removeUser, verifyUser,
+ *
 
 /**
  *  Function: addUser
@@ -39,6 +40,11 @@ var removeUser = function(usrname, callback){
       callback(err);
     }
   });
+}
+
+var verifyUser = function(userData, callback){
+  var username = userData.username;
+  var password = userData.password;
 }
 
 /**
