@@ -1,0 +1,17 @@
+<loggedin></loggedin>
+
+<form class="searchbar" ng-model="search">
+  Talent: <input type="text" ng-model="talentfilter">
+  Level: <input type="text" ng-model="levelfilter">
+  Location: <input type="text" ng-model="locationfilter">
+</form>
+
+<div ng-filter="search" ng-model="requests">
+  <div class="requestlist" ng-repeat="request in requests | filter:{talent:talentfilter, level:levelfilter, location:locationfilter}">
+    <div class="username" > {{ request.username }} </div>
+    <div class="talent"> {{ request.talent }} </div>
+    <div class="level"> {{ request.level }} </div>
+    <div class="location"> {{ request.location }} </div>
+    <div class="gotouser"> Check it out!! </div>
+  </div>
+</div>

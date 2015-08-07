@@ -4,8 +4,8 @@ app folder:
     routing
     auth??? JWT? SESSIONS? LOCALSTORAGE?
   user
-    view
-    controller
+    x view
+    x controller
   request    
     view
     controller
@@ -16,13 +16,12 @@ app folder:
     view
     controller
   navbar
-    loggedIn
-      view
-      controller
+    x loggedIn
+      x view
+      x controller
     loggedOut
-      view
-      controller
+      x view
   services
     HTTP Requests
-    AUTH
-    NAVBAR
+    AUTH???
+    x NAVBAR

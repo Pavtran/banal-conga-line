@@ -1,5 +1,6 @@
 var app = angular.module('app', [
   'app.services',
+  'app.request',
   'app.user',
   'app.nav',
   'ngRoute'
@@ -11,7 +12,11 @@ app.config(function($routeProvider){
       templateUrl: '/user/userView.html',
       controller: 'UserController'
     })
-    .otherwise({redirectTo: '/user'});
+    .when('/requests', {
+      templateUrl: 'request/requestView.html',
+      controller: 'RequestController'
+    })
+    .otherwise({redirectTo: '/user/eliot'});
 
   });
 

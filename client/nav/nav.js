@@ -1,6 +1,6 @@
 angular.module('app.nav',[])
 .controller('loggedInNavController', ['$scope', function($scope){
-  $scope.showme = true;
+  $scope.showme = false;
   
   $scope.request = {};
 

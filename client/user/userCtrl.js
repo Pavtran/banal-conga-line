@@ -17,7 +17,6 @@ angular.module('app.user', [])
 
     $scope.deleteRequest = function(index) {
       $scope.requests[index] = 0; // TODO: this should run Requests.deleteRequest
-      console.log($scope.requests);
     };
 
     // TODO: call to User.getUser( name: $routeParams.username)
