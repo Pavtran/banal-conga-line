@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var bluebird = require('bluebird');
+var Request = require('./Request');
 
 // var mongoose = require('mongoose');
 
@@ -29,7 +30,7 @@ var userSchema = mongoose.Schema({
   password: { type: String, required: true },
   location: { type: String},
   email: {type: String, index: { unique: true }},
-  talent: { type: Object}
+  talents: { type: Object}
 });
 
 userSchema.statics.findAllTalents = function(name, cb){
@@ -58,7 +59,7 @@ User.getAllTalents = function(talent, callback){
 
 }
 
-User.getTalent = function(talent, callback){
+User.getTalents = function(talent, callback){
 
 }
 
