@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var bluebird = require('bluebird');
-var Request = require('./Request');
+var Request = require('./request');
 
 // var mongoose = require('mongoose');
 
@@ -28,8 +28,9 @@ var Request = require('./Request');
 var userSchema = mongoose.Schema({
   name: { type: String, required: true},
   username: { type: String, required: true, index: { unique: true } },
-  password: { type: String, required: true },
-  location: { type: String},
+  uid: { type: String },
+  password: { type: String },
+  location: { type: String },
   email: {type: String, index: { unique: true }},
   talents: { type: Object}
 });

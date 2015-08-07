@@ -1,6 +1,6 @@
-var db = require('./Config');
-var User = require('./User.js');
-var Request = require('./Request.js');
+var db = require('./config');
+var User = require('./user.js');
+var Request = require('./request.js');
 /**
  *  DBParser file
  *  Purpose of this is to communicate between the frontend and database
@@ -14,7 +14,7 @@ var Request = require('./Request.js');
  *  Params: userData (Object)
 *           Callback
 **/
-var addUser = function(userData, callback){
+exports.addUser = addUser = function(userData, callback){
   //Add new user to database
   var user = new User(userData);
   user.save(function(err, userObj){
@@ -32,7 +32,7 @@ var addUser = function(userData, callback){
  *  Params: Username (as a string or as an object)
  *          Callback
 **/
-var removeUser = function(usrname, callback){
+exports.removeUser = removeUser = function(usrname, callback){
   username = parseUsername(usrname);
   User.remove({'username': username}, function(err){
     if(err){
@@ -42,10 +42,6 @@ var removeUser = function(usrname, callback){
   });
 }
 
-var verifyUser = function(userData, callback){
-  var username = userData.username;
-  var password = userData.password;
-}
 
 /**
  *  Function: addTalents
@@ -54,7 +50,7 @@ var verifyUser = function(userData, callback){
  *          Talents: Object
  *          Callback
 **/
-var addTalents = function(usrname, talents, callback){
+exports.addTalents = addTalents = function(usrname, talents, callback){
   //add talents to database for given user
   callback = callback || function(element){ console.log(element)};;
   username = parseUsername(usrname);
@@ -66,9 +62,39 @@ var addTalents = function(usrname, talents, callback){
   });
 }
 
+/**
+ *  Request based stuff
+**/
 
+//Adds request to database
+exports.addRequest = addRequest = function(requestData, callback){
+  var request = new rRquest(requestData);
+  request.save(function(err, requestObj){
+    if(err) console.log(err)
+    else{
+      console.log("request successfully added!");
+      callback(requestObj);
+    }
+  });
+}
 
-var getReqTalents = function(talent, callback){
+exports.toggleRequest = toggleRequest = function(request, callback){
+  if(request.active){
+    toggleRequestFalse(request, callback);
+  } else{
+    toggleRequestTrue(request, callback);
+  }
+}
+
+exports.toggleRequstFalse = toggleRequestFalse = function(request, callback){
+  Request.update(request._id, {'active': false});
+}
+
+exports.toggleRequestTrue = toggleRequestTrue = function(request, callback){
+  Request.update(request._id, {'active': true});
+}
+
+exports.getReqTalents = getReqTalents = function(talent, callback){
   //Get all users related to requested talent
   var query = {'talents': talent};
   User.find(talent, function(err, results){
@@ -77,7 +103,7 @@ var getReqTalents = function(talent, callback){
   })
 }
 
-var parseReq = function(request, callback){
+exports.parseReq = parseReq = function(request, callback){
   //Parses the request, and returns the users that meets the criteria
   var query = {
     'location': request.location
@@ -85,6 +111,13 @@ var parseReq = function(request, callback){
   // console.log(query);
   User.find(query, 'username location talents', function(err, results){
     if (err) console.log(err);
+    else callback(results);
+  });
+}
+
+exports.getRequests = getRequests = function(callback){
+  Request.find(function(err, results){
+    if(err) console.log(err);
     else callback(results);
   });
 }
@@ -102,65 +135,3 @@ var parseUsername = function(username){
     return username.username;
   }
 }
-
-// removeUser('Patrick');
-
-var patrick =  {
-  username: "Patrick",
-  password: "Test",
-  location: "Oakland",
-  email: "Pavtran2@gmail.com"
-}
-
-// console.log(patrick);
-// addUser(patrick);
-
-var talents = {
-  'Piano': 5,
-  'Guitar': 7,
-  'Trumpet': 5
-}
-
-// User.find(function(err, results){
-//   console.log(results);
-// });
-// 
-// addTalents('Patrick', talents);
-// removeUser({'username': 'Patrick'});
-
-// (User.find(function(err, results){
-//   console.log(results);
-// }));
-
-// var request = new Request({
-//   requester: "Patrick",
-//   talents: {'Piano': 4},
-//   location: 'Oakland'
-// })
-
-// request.save(function(err){
-//   if(err) console.log(err);
-//   console.log('successful!');
-// })
-
-// Request.find(function(err, results){
-//   console.log(results);
-// })
-
-// getReqTalents('Fwewetlute', function(results){
-//   console.log("People who can play the Piano" + results);
-// });
-
-var requestOne;
-Request.findOne(function(err, results){
-  requestOne = results;
-  console.log(requestOne);
-  parseReq(requestOne, function(results){
-    console.log("People who meet the request criteria" + results);
-  })
-
-});
-// console.log(requestOne);
-// parseReq(requestOne, function(results){
-//   console.log("People who meet the request criteria" + results);
-// })
