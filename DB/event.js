@@ -10,7 +10,7 @@ var eventSchema = mongoose.Schema({
   city: { type: String },
   address: { type: String },
   uid: { type: String },
-  hashtag: { type: String },
+  hashtag: [String],
   users: { type: Array },
   active: { type: Boolean, required: true , default: true}
 });
